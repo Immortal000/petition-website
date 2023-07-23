@@ -1,22 +1,10 @@
 <script>
 	import '../styles/app.css';
+	import { userAuth } from '../store';
 </script>
 
-<!-- 
-<div class="grid h-screen place-items-center rounded border-2 border-gray-400">
-	<div class="text-center">
-		<p class="text-3xl text-center">[Petition] Login</p>
-		<div class="flex-col flex border-2 border-gray-400 p-28">
-			<input type="text" class="border-2 w-full mx-auto mb-12" />
-			<input type="text" class="border-2 m-auto w-full" />
-		</div>
-	</div>
-</div> -->
 <section class="bg-gray-50 dark:bg-gray-900">
 	<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-		<a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-			Petition Website
-		</a>
 		<div
 			class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
 		>
@@ -61,6 +49,7 @@
 					>
 					<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 						Don’t have an account yet? <a
+							on:click={() => ($userAuth.login_screen = false)}
 							href="#"
 							class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a
 						>
