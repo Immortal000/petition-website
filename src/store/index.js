@@ -1,10 +1,12 @@
 import { writable } from 'svelte/store';
 
 export const userAuth = writable({
-	user_id: 1,
-	login_screen: true
+	login_screen: true,
+	user_logged_in: false,
+	user_name: ''
 });
 
 export const postsHandler = writable({
-	allPosts: []
+	allPosts: [],
+	userPosts: []
 });

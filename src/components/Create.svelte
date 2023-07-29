@@ -1,22 +1,17 @@
 <script>
 	import '../styles/app.css';
 	let title = '';
+	import { invalidate } from '$app/navigation';
+	import { userAuth } from '../store/index';
 
 	const create_petition = async () => {
-		// const response = await fetch(`https://nor-cal-hacks.vercel.app/create?title=${title}`, {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		Accept: 'application/json',
-		// 		'Content-Type': 'application/json'
-		// 	}
-		// });
-		let xhr = new XMLHttpRequest();
-		xhr.open('POST', `https://nor-cal-hacks.vercel.app/create?title=${title}`);
-		xhr.setRequestHeader('Accept', 'application/json');
-		xhr.setRequestHeader('Content-Type', 'application/json');
-
-		xhr.send();
-		location.reload();
+		if ($userAuth.user_logged_in == false) {
+			alert('Log in first!');
+		} else {
+			const response = await fetch(`/api?title=${title}&username=${$userAuth.user_name}`);
+			alert('new post added!');
+			invalidate('get-all-posts');
+		}
 	};
 </script>
 
